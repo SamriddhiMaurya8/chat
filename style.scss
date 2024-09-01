@@ -1,0 +1,417 @@
+@import '_variables' ; 
+@import '_header' ; 
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: 'Source Sans Pro', sans-serif;
+}
+//one
+
+
+.chatbox{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    &__header{
+        background-color: $color2;
+        position: relative;
+        height: 100px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        padding: 0 24px;
+    }
+    &__close{
+        position: absolute;
+        top: 18px;
+        right: 18px;
+        &--container{
+            width: 25px;
+            height: 25px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        &--container:hover{
+            opacity: 0.8;
+        }
+    }
+    &__avatar{
+        width: 60px;
+        height: 60px;
+        margin-right: 22px;
+        &--container{
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        &--status{
+            height: 16%;
+            width: 16%;
+            background-color: $color3;
+            border:1px solid $color2;
+            border-radius: 100%;
+            position: absolute;
+            bottom: 7%;
+            right: 7%;
+        }
+        &--dp{
+            width: 100%;
+            height: 100%;
+            border-radius: 100%;
+            overflow: hidden;
+            box-shadow: 0 0 7px 0 rgba($color1, 0.15);
+        }
+        &--image{
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+    &__company{
+        &--heading{
+            font-size: 24px;
+            line-height: 31px;
+            font-weight: 600;
+            
+        }
+        &--status{
+            color: $color4;
+            line-height: 19px;
+        }
+    }
+    &__conversation{
+        height: 345px;
+        overflow-y: scroll;
+        width: 100%;
+        background-color: $color5;
+    }
+    &__conversation::before{
+        content: "";
+        display: block;
+        height: 20px;
+        width: 100%;
+        background: linear-gradient(to bottom, rgba($color1, 0.04), transparent);
+    }
+    &__message{
+        background-color: $color2;
+        border-top: 1px solid $color6;
+        height: 50px;
+        padding-right: 20px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        &--input{
+            font-size: 16px;
+            line-height: 20px;
+            height: 100%;
+            width: 100%;
+            padding: 0 20px;
+            border: 0;
+            outline: Falsene;
+            caret-color: $color7;
+            background-color: $color2;
+        }
+        &--input::placeholder{
+            color: $color7;
+        }
+        .send-btn{
+            width: 26px;
+            height: 26px;
+            cursor: pointer;
+            transition: all 0.3px;
+            &:hover{
+                opacity: 0.8;
+                cursor: pointer;
+            }
+        }
+        .send-btn:hover {
+          
+            opacity: 0.8;
+            cursor: pointer;
+        }
+    }
+    &__footer{
+        font-size: 12px;
+        line-height: 16px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-top: 1px solid $color8;
+        background-color: $color9;
+        height: 35px;
+       .text{
+            color: $color4;
+        }
+        .link{
+            text-decoration: Falsene;
+            color: $color10;
+        }
+    }
+}
+
+
+
+//two
+.caption{
+    padding: 10px 25px;
+    &__container{
+        display: flex;
+        align-items: center;
+    }
+    &__avatar{
+        width: 18px;
+        height: 18px;
+        border-radius: 100%;
+        margin-right: 6px;
+        overflow: hidden;
+        &--content{
+            height: 100%;
+            width: 100%;
+        }
+        &--image{
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+    &__text{
+        color: $color11;
+        font-size: 14px;
+        line-height: 18px;
+    }
+}
+
+.botresponse{
+    padding: 0 25px 10px;
+    &__text{
+        background-color: $color2;
+        font-size: 16px;
+        line-height: 20px;
+        border-radius: 20px;
+        border-bottom-left-radius: 5px;
+        padding: 15px 17px;
+        display: inline-block;
+    }
+}
+
+.botquestion{
+    padding: 0 25px 10px;
+    &__text{
+        background-color: $color2;
+        font-size: 16px;
+        line-height: 20px;
+        border-radius: 20px;
+        border-top-left-radius: 5px;
+        padding: 15px 17px;
+        display: inline-block;
+    }
+    &__replies{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 15px;
+        &--text{
+            font-size: 16px;
+            line-height: 20px;
+            font-weight: 600;
+            margin: 4px;
+            height: 32px;
+            border: 1px solid $color12;
+            color: $color12;
+            background-color: $color2;
+            border-radius: 16px;
+            padding: 0 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        &--text:hover{
+            opacity: 0.8;
+        }
+    }
+}
+
+.replies-hide{
+    display: Falsene;
+}
+
+.userPart{
+    padding: 10px 25px;
+    display: flex;
+    justify-content: end;
+    &__text{
+        color: $color11;
+        font-size: 14px;
+        line-height: 18px;
+    }
+}
+
+.userresponse{
+    padding: 0 25px 10px;
+    display: flex;
+    justify-content: end;
+    &__text{
+        background-color: $color12;
+        color: $color2;
+        font-size: 16px;
+        line-height: 20px;
+        border-radius: 20px;
+        border-bottom-right-radius: 5px;
+        padding: 15px 17px;
+    }
+}
+
+.start{
+    text-align: center;
+    padding: 10px 0;
+    &__btn{
+        background-color: $color12;
+        color: $color2;
+        border: 0;
+        outline: Falsene;
+        font-size: 16px;
+        font-weight: 600;
+        padding: 12px 20px;
+        cursor: pointer;
+        border-radius: 4px;
+    }
+    &__btn:hover{
+        opacity: 0.8;
+    }
+}
+
+
+//three
+.closed{
+    position:fixed;
+    right: 0;
+    bottom: 0;
+    width: 280px;
+    height: 224px;
+    z-index: 1000;
+    transition: all 0.3s;
+    &__container{
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+    }
+}
+
+.hideBtn{
+    transform: translateY(100%);
+}
+
+.welcome{
+    width: 240px;
+    margin: 20px;
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    transition:all 0.3s;
+    &__close{
+        margin-bottom: 10px;
+        opacity: 0;
+        &--icon{
+            background-color: rgba($color1, 0.4);
+            width: 20px;
+            height: 20px;
+            padding: 2px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-radius: 100%;
+        }
+        &--icon:hover{
+            background-color: rgba($color1, 0.3);
+        }
+    }
+    &__text{
+        background-color: $color2;
+        color: #000;
+        font-size: 16px;
+        border-radius: 6px;
+        box-shadow: 0 5px 20px rgba($color1, 0.1);
+        transition: box-shadow 0.3s, opacity 0.3s;
+        cursor: pointer;
+        padding: 15px 20px;
+        width: 100%;
+        line-height: 22px;
+        text-align: left;
+        word-wrap: break-word;
+    }
+    &__text:hover{
+        box-shadow: 0 5px 20px rgba($color1, 0.17);
+    }
+}
+
+.welcome:hover .welcome__close{
+    opacity: 1;
+}
+
+.welcome-text{
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.img{
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    box-shadow: 0 0 50px 0 rgba($color1, 0.06);
+    margin: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s;
+    &__container{
+        height: 100%;
+        width: 100%;
+        &--image{
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+    &__container:hover &__container--image{
+        opacity: 0.8;
+    }
+}
+
+
+
+
+//six
+.opened{
+    position:fixed;
+    right: 0;
+    bottom: 0;
+    width: 410px;
+    height: 569px;
+   
+    transform: translateY(100%);
+    transition: all 0.3s;
+    &__container{
+        width: 370px;
+        height: 530px;
+        margin: 20px;
+        box-shadow: 0 4px 16px rgba($color1, 0.25);
+        border-radius: 15px;
+        overflow: hidden;
+        
+    }
+}
+
+.openBtn{
+    transform: translateY(0);
+}
+
