@@ -207,30 +207,30 @@ body {
   color: #125bfb;
 }
 
-.caption {
+.answer {
   padding: 10px 25px;
 }
-.caption__container {
+.answer__container {
   display: flex;
   align-items: center;
 }
-.caption__avatar {
+.answer__avatar {
   width: 18px;
   height: 18px;
   border-radius: 100%;
   margin-right: 6px;
   overflow: hidden;
 }
-.caption__avatar--content {
+.answer__avatar--content {
   height: 100%;
   width: 100%;
 }
-.caption__avatar--image {
+.answer__avatar--image {
   height: 100%;
   width: 100%;
   object-fit: cover;
 }
-.caption__text {
+.answer__text {
   color: #181919;
   font-size: 14px;
   line-height: 18px;

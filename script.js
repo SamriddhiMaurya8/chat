@@ -81,10 +81,10 @@ const handleQuickReply = (reply, city) => {
     const userResponseElement = document.createElement('div'); 
     userResponseElement.innerHTML = userResponse(reply);
     
-    const chatBotCaptionElement = document.createElement('div'); 
-    chatBotCaptionElement.innerHTML = chatBotCaption;
+    const chatBotAnswerssElement = document.createElement('div'); 
+    chatBotAnswerssElement.innerHTML = chatBotAnswerss;
 
-    messageChat.append(userPartElement, userResponseElement, chatBotCaptionElement);
+    messageChat.append(userPartElement, userResponseElement, chatBotAnswerssElement);
 
     if (reply === 'Yes') {
         showSameCityOptions(city);
@@ -100,12 +100,21 @@ const showSameCityOptions = (city) => {
     aboutCities(city);
 };
 
+
+
 const endConversation = () => {
-    messageChat.innerHTML += botReplies('Thank You! 😊');
-    messageChat.innerHTML += startAgain;
+    const thankYouMessage = document.createElement('div');
+    thankYouMessage.innerHTML = botReplies('Thank You! 😊');
+
+    const startAgainElement = document.createElement('div');
+    startAgainElement.innerHTML = startAgain;
+
+    messageChat.append(thankYouMessage, startAgainElement);
+
     const startbtn = document.querySelector('.start__btn');
     startbtn.addEventListener('click', resetChat);
 };
+
 
 const chatbotSame = (city) => {
     return `<div class="botquestion">
@@ -144,6 +153,7 @@ const getData = (city) => {
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=c2cffe0e64b21fdafa28bf75b7f06b91`)
         .then((response) => {
             if (!response.ok) {
+               
                 throw new Error("Invalid city");
             }
             return response.json();
@@ -165,13 +175,9 @@ const getData = (city) => {
                     })
                     .then(response => response.json())
                     .then(data => {
-                        const time = new Date().toLocaleString("en-US", {
-                            timeZone: data.timezone,
-                            timeStyle: "medium",
-                            hourCycle: "h24",
-                        });
+                        const time = new Date();
                        
-                        appendToChat(botReplies(`${data.timezone} ${time}`));
+                        appendToChat(botReplies(`${time}`));
                         appendToChat(chatbotMoredetails());
 
                         replies = document.querySelectorAll('.botquestion__replies--text');
@@ -212,11 +218,14 @@ const getData = (city) => {
             }
         })
         .catch(error => {
+            console.log('error');
             appendToChat(botReplies('Please enter a valid city name! '));
             messageChat.scrollTo(0, messageChat.scrollHeight);
             input.value = "";
             input.focus();
         });
+
+       
 };
 
 
@@ -227,7 +236,7 @@ const userPart = `<div class="userPart">
                         <div class="userPart__text"></div>
                     </div>`;
 
-const chatBotCaption = `<div class="caption">
+const chatBotAnswerss = `<div class="answer">
                         </div>`;
 
 const userResponse = (res) => {
@@ -243,15 +252,24 @@ const botReplies = (res) => {
 }
 
 
-
 const sendCity = () => {
     let city = input.value;
-    if(city!=""){
-    messageChat.innerHTML += userPart;
-    messageChat.innerHTML += userResponse(city);
-    getData(city);
+    if (city !== "") {
+        const userPartElement = document.createElement('div');
+        userPartElement.className = 'user-part';
+        userPartElement.innerHTML = userPart; 
+
+        const userResponseElement = document.createElement('div');
+        userResponseElement.className = 'user-response';
+        userResponseElement.innerHTML = userResponse(city); 
+
+        messageChat.append(userPartElement, userResponseElement);
+        getData(city);
     }
 }
+
+
+
 
 sendbtn.addEventListener('click', () => {
     sendCity();
@@ -259,47 +277,95 @@ sendbtn.addEventListener('click', () => {
 
 
     
+
+
+
 const repliesSamecity = (replies, city) => {
     replies.forEach(item => {
         item.addEventListener('click', () => {
             response = item.innerHTML;
-            const reply = userResponse(item.innerHTML);
-            messageChat.innerHTML += userPart;
-            messageChat.innerHTML += reply;
+
+            const userPartElement = document.createElement('div');
+            userPartElement.innerHTML = userPart; 
+
+            const replyElement = document.createElement('div');
+            replyElement.innerHTML = userResponse(item.innerHTML);
+
+            messageChat.appendChild(userPartElement);
+            messageChat.appendChild(replyElement);
+
             const repliesContainer = document.querySelector('.botquestion__replies');
-            repliesContainer.remove();
-           
+            if (repliesContainer) {
+                repliesContainer.remove();
+            }
+
             getData(city);
-        })
-    })
-}
+        });
+    });
+};
+
+
+
+
 
 const resetChat = () => {
-    while(messageChat.innerHTML)
-    messageChat.removeChild(messageChat.firstChild);
-    messageChat.innerHTML = chatBotCaption;
-    messageChat.innerHTML += botReplies("Hi! I'm Mr. Chatbot , Nice to meet you! 👋");
-    messageChat.innerHTML += chatbotQuickreply();
+    while (messageChat.firstChild) {
+        messageChat.removeChild(messageChat.firstChild);
+    }
+
+    const answerDiv = document.createElement('div');
+    answerDiv.innerHTML = chatBotAnswerss;
+    messageChat.append(answerDiv);
+
+    const botReplyDiv = document.createElement('div');
+    botReplyDiv.innerHTML = botReplies("Hi! I'm Mr. Chatbot, Nice to meet you!");
+    messageChat.append(botReplyDiv);
+
+    const quickReplyDiv = document.createElement('div');
+    quickReplyDiv.innerHTML = chatbotQuickreply();
+    messageChat.append(quickReplyDiv);
+
     replies = document.querySelectorAll('.botquestion__replies--text');
     repliesEvent();
 }
+
+
+
+
+
 const repliesEvent = () => {
     replies.forEach(item => {
         item.addEventListener('click', () => {
             response = item.innerHTML;
-            const reply = userResponse(item.innerHTML);
-            messageChat.innerHTML += userPart;
-            messageChat.innerHTML += reply;
-    
-            messageChat.innerHTML += botReplies('Please enter your city name in the typing area! ');
+
+       
+            const userPartElement = document.createElement('div');
+            userPartElement.className = 'user-part';
+            userPartElement.innerHTML = userPart;
+
+            const replyElement = document.createElement('div');
+            replyElement.className = 'user-response';
+            replyElement.innerHTML = userResponse(item.innerHTML);
+
+            const botReplyElement = document.createElement('div');
+            botReplyElement.className = 'bot-reply';
+            botReplyElement.innerHTML = botReplies('Please enter your city name in the typing area!');
+
+            messageChat.append(userPartElement, replyElement, botReplyElement);
+
             input.disabled = false;
             input.focus();
+
             const repliesContainer = document.querySelector('.botquestion__replies');
-            repliesContainer.remove();
-           
-        })
-    })
-}
+            if (repliesContainer) {
+                repliesContainer.remove();
+            }
+        });
+    });
+};
+
+
+
 closebtn.addEventListener('click', () => {
     closedContainer.classList.remove('hideBtn');
     openedContainer.classList.remove('openBtn');
@@ -317,15 +383,16 @@ msgBox.addEventListener('click', () => {
 })
 
 
-resetChat();
 
 
 const chatbotMoredetails = () => {
     return `<div class="botquestion">
-                <div class="botquestion__text">looking for more information?</div>
-                <div class="botquestion__replies">
-                    <div class="botquestion__replies--text">Yes</div>
-                    <div class="botquestion__replies--text">No</div>
-                </div>
-            </div>`;
+    <div class="botquestion__text">looking for more information?</div>
+    <div class="botquestion__replies">
+    <div class="botquestion__replies--text">Yes</div>
+    <div class="botquestion__replies--text">No</div>
+    </div>
+    </div>`;
 }
+
+resetChat();
