@@ -1,0 +1,148 @@
+@import '_variables';
+@import '_mixins';
+
+.chatbox {
+  height: 100%;
+  width: 100%;
+  @include flex-container(column);
+
+  &__header {
+    background-color: $color2;
+    position: relative;
+    height: 100px;
+    width: 100%;
+    @include flex-container(row, center, center);
+    padding: 0 24px;
+  }
+
+  &__close {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    &--container {
+      width: 20px;
+      height: 20px;
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+    &--container:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &__avatar {
+    width: 60px;
+    height: 60px;
+    margin-right: 22px;
+
+    &--container {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    &--status {
+      height: 16%;
+      width: 16%;
+      background-color: $color3;
+      border: 1px solid $color2;
+      position: absolute;
+      bottom: 7%;
+      right: 7%;
+      @include rounded-corners(50%);
+    }
+
+    &--dp {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      @include box-shadow();
+      @include rounded-corners(50%);
+    }
+
+    &--image {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__company {
+    &--heading {
+      @include responsive-font(24px, 28px, 32px);
+      font-weight: 600;
+    }
+
+    &--status {
+      color: $color4;
+      line-height: 19px;
+    }
+  }
+
+  &__conversation {
+    height: 345px;
+    overflow-y: scroll;
+    width: 100%;
+    background-color: $color5;
+    &::before {
+      content: "";
+      display: block;
+      height: 20px;
+      width: 100%;
+      background: linear-gradient(to bottom, rgba($color1, 0.04), transparent);
+    }
+  }
+
+  &__message {
+    background-color: $color2;
+    border-top: 1px solid $color6;
+    height: 50px;
+    padding-right: 20px;
+    width: 100%;
+    @include flex-container(row, space-between, center);
+
+    &--input {
+      font-size: 16px;
+      line-height: 20px;
+      height: 100%;
+      width: 100%;
+      padding: 0 20px;
+      border: 0;
+      outline: none;
+      caret-color: $color7;
+      background-color: $color2;
+    }
+
+    &--input::placeholder {
+      color: $color7;
+    }
+
+    &--send {
+      width: 26px;
+      height: 26px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    &--send:hover {
+      cursor: pointer;
+    }
+  }
+
+  .footer {
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 600;
+    @include flex-container(row, center, center);
+    border-top: 1px solid $color8;
+    background-color: $color9;
+    height: 35px;
+
+    .text {
+      color: $color4;
+    }
+    .link {
+      text-decoration: none;
+      color: $color10;
+    }
+  }
+}

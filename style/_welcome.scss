@@ -1,0 +1,35 @@
+@import '_variables' ; 
+
+
+.welcome {
+    width: 240px;
+    margin: 20px;
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    transition: all 0.3s;
+    &__close {
+        margin-bottom: 10px;
+        opacity: 0;
+        &--icon {
+            background-color: rgba($color1, 0.4);
+            width: 20px;
+            height: 20px;
+            padding: 2px;
+            cursor: pointer;
+            padding-top: 4px;
+            transition: all 0.3s;
+            border-radius: 100%;
+            color: $color5;
+            font-size: 12px;
+            text-align: center;
+        }
+    }
+    &__welcome-text {
+        font-size: 24px;
+        line-height: 31px;
+        font-weight: 600;
+        color: $color5;
+    }
+}

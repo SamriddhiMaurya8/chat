@@ -1,0 +1,45 @@
+
+
+@mixin flex-container($direction: row, $justify: center, $align: center, $wrap: nowrap) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+    flex-wrap: $wrap;
+  }
+  
+
+  @mixin responsive-font($size-sm, $size-md, $size-lg) {
+    font-size: $size-sm;
+    @media (min-width: 600px) {
+      font-size: $size-md;
+    }
+    @media (min-width: 1024px) {
+      font-size: $size-lg;
+    }
+  }
+  
+
+  @mixin rounded-corners($radius: 10px) {
+    border-radius: $radius;
+  }
+  
+
+  @mixin button($bg-color, $text-color, $padding: 10px 20px, $radius: 5px) {
+    background-color: $bg-color;
+    color: $text-color;
+    border: none;
+    padding: $padding;
+    border-radius: $radius;
+    cursor: pointer;
+    transition: all 0.3s;
+  
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  @mixin box-shadow($shadow: 0 4px 8px rgba(0, 0, 0, 0.2)) {
+    box-shadow: $shadow;
+  }
+  

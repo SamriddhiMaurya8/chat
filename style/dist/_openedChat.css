@@ -1,0 +1,21 @@
+.opened {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: 410px;
+  height: 569px;
+  transform: translateY(100%);
+  transition: all 0.3s;
+}
+.opened__container {
+  width: 370px;
+  height: 530px;
+  margin: 20px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.openBtn {
+  transform: translateY(0);
+}

@@ -1,0 +1,32 @@
+.welcome {
+  width: 240px;
+  margin: 20px;
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  transition: all 0.3s;
+}
+.welcome__close {
+  margin-bottom: 10px;
+  opacity: 0;
+}
+.welcome__close--icon {
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 20px;
+  height: 20px;
+  padding: 2px;
+  cursor: pointer;
+  padding-top: 4px;
+  transition: all 0.3s;
+  border-radius: 100%;
+  color: #eaeef3;
+  font-size: 12px;
+  text-align: center;
+}
+.welcome__welcome-text {
+  font-size: 24px;
+  line-height: 31px;
+  font-weight: 600;
+  color: #eaeef3;
+}
