@@ -33,8 +33,8 @@ body{
         top: 18px;
         right: 18px;
         &--container{
-            width: 25px;
-            height: 25px;
+            width: 20px;
+            height: 20px;
             transition: all 0.3s;
             cursor: pointer;
         }
@@ -184,6 +184,20 @@ body{
 
 .botresponse{
     padding: 0 25px 10px;
+
+    &__label{
+        padding: 10px 17px;
+        
+        font-size: 14px;
+        line-height: 18px;
+        img{
+            border-radius: 50%;
+            width: 18px;
+            margin-right: 7px;
+            height: 18px;
+            // margin-top: ;
+        }
+    }
     &__text{
         background-color: $color2;
         font-size: 16px;
@@ -209,7 +223,7 @@ body{
     &__replies{
         display: flex;
         flex-wrap: wrap;
-        flex-direction: column;
+        // flex-direction: column;
         justify-content: center;
         margin-top: 15px;
         &--text{
@@ -321,8 +335,12 @@ body{
             height: 20px;
             padding: 2px;
             cursor: pointer;
+            padding-top: 4px;
             transition: all 0.3s;
             border-radius: 100%;
+            color: $color5;
+            font-size: 12px;
+            text-align: center;
         }
         &--icon:hover{
             background-color: rgba($color1, 0.3);

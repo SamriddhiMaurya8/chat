@@ -26,7 +26,7 @@
         p{
             display: flex;
             gap: 2px;
-            // font-size: 1rem;
+          
             font-weight: bold;
             line-height: 23px;
             &:hover{
@@ -43,15 +43,15 @@
     }
     .right-nav{
         display: flex;
-        // margin-top: 6px;
+  
         gap: 3vw;
         button{
             width: 6vw;
             height: 6vh;
-            background-color: white;
-            color: black;
+            background-color: $color2;
+            color: $color1;
             font-weight: 300;
-            border: 2px solid black;
+            border: 2px solid $color1;
             border-radius: 4px;
             &:hover{
                 cursor: pointer;
@@ -59,14 +59,17 @@
         }
         .signup{
             background-color: orangered;
-            color: black;
+            color: $color1;
             font-weight: 600;
             width: 12vw;
             height: 34px;
             text-align: center;
+            color: $color2;
+            border-radius: 8px;
             padding-top: 7px;
-            border: 2px solid black;
-            // height: 4vh; x   
+
+            // border: 2px solid $color1;
+       
             &:hover{
                 cursor: pointer;
             }
