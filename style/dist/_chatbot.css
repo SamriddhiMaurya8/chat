@@ -5,6 +5,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  flex-wrap: nowrap;
 }
 .chatbox__header {
   background-color: #fff;
@@ -13,9 +14,10 @@
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 0 24px;
+  justify-content: start;
+  align-items: end;
+  flex-wrap: nowrap;
+  padding: 23px 24px;
 }
 .chatbox__close {
   position: absolute;
@@ -67,16 +69,6 @@
   font-size: 24px;
   font-weight: 600;
 }
-@media (min-width: 600px) {
-  .chatbox__company--heading {
-    font-size: 28px;
-  }
-}
-@media (min-width: 1024px) {
-  .chatbox__company--heading {
-    font-size: 32px;
-  }
-}
 .chatbox__company--status {
   color: #9ba6b3;
   line-height: 19px;
@@ -104,6 +96,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: nowrap;
 }
 .chatbox__message--input {
   font-size: 16px;
@@ -136,6 +129,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  flex-wrap: nowrap;
   border-top: 1px solid #eeeeee;
   background-color: #f9f9f9;
   height: 35px;

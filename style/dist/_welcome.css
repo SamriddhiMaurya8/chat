@@ -9,24 +9,32 @@
 }
 .welcome__close {
   margin-bottom: 10px;
-  opacity: 0;
 }
 .welcome__close--icon {
   background-color: rgba(0, 0, 0, 0.4);
+  opacity: 0;
   width: 20px;
   height: 20px;
   padding: 2px;
   cursor: pointer;
-  padding-top: 4px;
   transition: all 0.3s;
   border-radius: 100%;
-  color: #eaeef3;
+  color: #fff;
   font-size: 12px;
   text-align: center;
+  padding-top: 4px;
 }
-.welcome__welcome-text {
-  font-size: 24px;
-  line-height: 31px;
-  font-weight: 600;
-  color: #eaeef3;
+.welcome__text {
+  background-color: #fff;
+  color: #000;
+  font-size: 16px;
+  border-radius: 6px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s, opacity 0.3s;
+  cursor: pointer;
+  padding: 15px 20px;
+  width: 100%;
+  line-height: 22px;
+  text-align: left;
+  word-wrap: break-word;
 }

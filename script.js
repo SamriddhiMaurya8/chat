@@ -8,6 +8,10 @@ const openedContainer = document.querySelector(".opened");
 
 const messageChat = document.querySelector(".chatbox__conversation");
 
+
+
+
+
 const aboutCities = (city) => {
   replies.forEach((item) => {
     item.addEventListener("click", () => {
@@ -204,6 +208,7 @@ const getData = (city) => {
 };
 
 const userPart = `<div class="userPart">
+
                         <div class="userPart__text"></div>
                     </div>`;
 
@@ -212,6 +217,7 @@ const chatBotAnswerss = `<div class="answer">
 
 const userResponse = (res) => {
   return `<div class="userresponse">
+                  <div class="userresponse__label">User</div> 
                 <div class="userresponse__text">${res}</div>
             </div>`;
 };
@@ -331,7 +337,8 @@ closebtn.addEventListener("click", () => {
   resetChat();
 });
 welcomeClose.addEventListener("click", () => {
-  welcomeContainer.classList.add("welcome-text");
+  // welcomeContainer.classList.add("welcome-text");
+  welcomeContainer.style.display="none" ; 
 });
 const msgBox = document.querySelector(".img__container");
 

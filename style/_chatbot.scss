@@ -11,8 +11,9 @@
     position: relative;
     height: 100px;
     width: 100%;
-    @include flex-container(row, center, center);
-    padding: 0 24px;
+    @include flex-container(row, start, end);
+    padding: 23px 24px;
+    // padding-bottom: 23px;
   }
 
   &__close {
@@ -69,7 +70,7 @@
 
   &__company {
     &--heading {
-      @include responsive-font(24px, 28px, 32px);
+      @include responsive-font(24px);
       font-weight: 600;
     }
 
@@ -91,6 +92,9 @@
       width: 100%;
       background: linear-gradient(to bottom, rgba($color1, 0.04), transparent);
     }
+
+  
+    
   }
 
   &__message {

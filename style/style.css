@@ -76,43 +76,28 @@
   color: rgb(24, 25, 25);
   line-height: 18px;
 }
-@media (min-width: 600px) {
-  .userPart__text {
-    font-size: 16px;
-  }
-}
-@media (min-width: 1024px) {
-  .userPart__text {
-    font-size: 18px;
-  }
-}
 
 .userresponse {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: flex-end;
-  align-items: center;
+  align-items: flex-end;
   flex-wrap: nowrap;
-  padding: 0 25px 10px;
+  padding: 0 25px 12px;
+}
+.userresponse__label {
+  font-size: 14px;
+  margin-right: 10px;
+  margin-bottom: 7px;
 }
 .userresponse__text {
   border-radius: 20px;
   background-color: rgb(0, 102, 255);
   color: #fff;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 20px;
   border-bottom-right-radius: 5px;
   padding: 15px 17px;
-}
-@media (min-width: 600px) {
-  .userresponse__text {
-    font-size: 18px;
-  }
-}
-@media (min-width: 1024px) {
-  .userresponse__text {
-    font-size: 20px;
-  }
 }
 
 .chatbox {
@@ -131,10 +116,10 @@
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  justify-content: start;
+  align-items: end;
   flex-wrap: nowrap;
-  padding: 0 24px;
+  padding: 23px 24px;
 }
 .chatbox__close {
   position: absolute;
@@ -186,16 +171,6 @@
 .chatbox__company--heading {
   font-size: 24px;
   font-weight: 600;
-}
-@media (min-width: 600px) {
-  .chatbox__company--heading {
-    font-size: 28px;
-  }
-}
-@media (min-width: 1024px) {
-  .chatbox__company--heading {
-    font-size: 32px;
-  }
 }
 .chatbox__company--status {
   color: rgb(155, 166, 179);
@@ -377,26 +352,34 @@
 }
 .welcome__close {
   margin-bottom: 10px;
-  opacity: 0;
 }
 .welcome__close--icon {
   background-color: rgba(0, 0, 0, 0.4);
+  opacity: 0;
   width: 20px;
   height: 20px;
   padding: 2px;
   cursor: pointer;
-  padding-top: 4px;
   transition: all 0.3s;
   border-radius: 100%;
-  color: rgb(234, 238, 243);
+  color: #fff;
   font-size: 12px;
   text-align: center;
+  padding-top: 4px;
 }
-.welcome__welcome-text {
-  font-size: 24px;
-  line-height: 31px;
-  font-weight: 600;
-  color: rgb(234, 238, 243);
+.welcome__text {
+  background-color: #fff;
+  color: #000;
+  font-size: 16px;
+  border-radius: 6px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s, opacity 0.3s;
+  cursor: pointer;
+  padding: 15px 20px;
+  width: 100%;
+  line-height: 22px;
+  text-align: left;
+  word-wrap: break-word;
 }
 
 .opened {
@@ -499,6 +482,9 @@ body {
   flex-direction: column;
   align-items: end;
 }
+.right-bottom .closed__container:hover .welcome__close--icon {
+  opacity: 1;
+}
 
 .hideBtn {
   transform: translateY(100%);
@@ -506,6 +492,8 @@ body {
 
 .img {
   width: 60px;
+  position: fixed;
+  bottom: 1%;
   height: 60px;
   border-radius: 100%;
   box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.06);

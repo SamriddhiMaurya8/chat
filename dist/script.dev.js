@@ -165,11 +165,11 @@ var getData = function getData(city) {
   });
 };
 
-var userPart = "<div class=\"userPart\">\n                        <div class=\"userPart__text\"></div>\n                    </div>";
+var userPart = "<div class=\"userPart\">\n\n                        <div class=\"userPart__text\"></div>\n                    </div>";
 var chatBotAnswerss = "<div class=\"answer\">\n                        </div>";
 
 var userResponse = function userResponse(res) {
-  return "<div class=\"userresponse\">\n                <div class=\"userresponse__text\">".concat(res, "</div>\n            </div>");
+  return "<div class=\"userresponse\">\n                  <div class=\"userresponse__label\">User</div> \n                <div class=\"userresponse__text\">".concat(res, "</div>\n            </div>");
 };
 
 var botReplies = function botReplies(res) {
@@ -265,7 +265,8 @@ closebtn.addEventListener("click", function () {
   resetChat();
 });
 welcomeClose.addEventListener("click", function () {
-  welcomeContainer.classList.add("welcome-text");
+  // welcomeContainer.classList.add("welcome-text");
+  welcomeContainer.style.display = "none";
 });
 var msgBox = document.querySelector(".img__container");
 msgBox.addEventListener("click", function () {
